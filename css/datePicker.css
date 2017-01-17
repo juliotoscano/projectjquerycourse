@@ -1,0 +1,31 @@
+body{
+    font-family: 'Arima Madurai', cursive;
+}
+.title{
+    margin-top: 10%;
+}
+.title div{
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: #EA80FC;
+}
+.formulario{
+    margin-top: 2%;
+}
+.formulario div{
+    padding-top: 2%;
+    background-color: #EA80FC;
+}
+.escolhaHora{
+    width: 140px;
+    height: 90px;
+    background-color: #AA00FF;
+    color:#FFF;
+    position:absolute;
+    display: none;
+}
+button {
+    margin-top: 10px;
+    margin-left: 8px;
+}

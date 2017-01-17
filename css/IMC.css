@@ -1,0 +1,19 @@
+body{
+    font-family: 'Arima Madurai', cursive;
+}
+.title{
+    margin-top: 10%;
+}
+.title div{
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: #F5F5F5;
+}
+.formulario{
+    margin-top: 2%;
+}
+.formulario div{
+    padding-top: 2%;
+    background-color: #F5F5F5;
+}
