@@ -1,0 +1,12 @@
+.form{
+    width: 400px;
+    height: 200px;
+    margin-top: 200px;
+    margin-left: 400px;
+    background-color: #DDD;
+}
+.componentes{
+    padding-top: 50px;
+    margin-left: 100px;
+    text-align: justify;
+}
