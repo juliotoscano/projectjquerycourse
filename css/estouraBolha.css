@@ -1,0 +1,26 @@
+.placar{
+    /* tamanho do placar*/
+    width: 150px;
+    height:150px;
+    /* Posição */
+    position: fixed;
+    top: 0;
+    left: 0;
+    /*cor*/
+    background-color: #DDD;
+    /*alinhamento*/
+    text-align: center;
+}
+#pontuacao{
+    font-size:50px;
+}
+.bola{
+    /*tamanho da bola*/
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    /*Cor*/
+    background-color: #000;
+    /*posição*/
+    position: absolute;
+}
