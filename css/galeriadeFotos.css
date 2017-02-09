@@ -1,0 +1,28 @@
+.galeria img{
+    padding-top:  10px;
+    padding-left: 10px;
+    width: 150px;
+    height: 130px;
+    border:0;
+}
+.box{
+    position: fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+}
+.divboximg{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 500px;
+    height: 400px;
+    background-color: #FFF;
+    margin-left: -270px;
+    margin-top:-220px;
+    padding: 20px;
+    display: none;
+}
