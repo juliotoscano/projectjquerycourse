@@ -1,8 +1,15 @@
+//Nao estou conseguindo executar o tempo apos passar de musica.
+
+
+function nextMusic() {
+    $('.panel-collapse').collapse('hide');
+    $('#collapseTwo').collapse('show');
+}
 
 function clock() {
-    var s = 1;
-    var m = 1;
-    var stop = false;
+    var s = 2;
+    var m = 0;
+    var stop = true;
     var intervalo;
     //var h = 0;
 
@@ -13,6 +20,7 @@ function clock() {
             if (stop) {
                 document.getElementById("segundo").innerHTML = "0"+ s + "s";
                 window.clearInterval(intervalo);
+                nextMusic();
             }else{
                 //A principio as musicas terao 2m30s de duracao. Dessa forma:
                 m--;
@@ -24,6 +32,7 @@ function clock() {
                 }
             }
         }
+
         // if (h < 10) document.getElementById("hora").innerHTML = "0" + h + "h"; else document.getElementById("hora").innerHTML = h + "h";
         if (s < 10) document.getElementById("segundo").innerHTML = "0" + s + "s"; else document.getElementById("segundo").innerHTML = s + "s";
         if (m < 10) document.getElementById("minuto").innerHTML = "0" + m + "m"; else document.getElementById("minuto").innerHTML = m + "m";
@@ -33,6 +42,7 @@ function clock() {
     //Se houver o evento para esconder o collapse, entao sera acionado para que o evento de intervalo pare.
     $('.panel-collapse').on('hidden.bs.collapse', function () {
         window.clearInterval(intervalo);
+        statusIntervalo = true;
         $(this).find('.panel-body').html(' cifra');
     });
 
