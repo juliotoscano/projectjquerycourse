@@ -1,26 +1,27 @@
-//Nao estou conseguindo executar o tempo apos passar de musica.
+//Bug se alternar as musicas quando estiver passando automaticamente.
 
+function clock(minuto, segundo) {
 
-function nextMusic() {
-    $('.panel-collapse').collapse('hide');
-    $('#collapseTwo').collapse('show');
-}
+    function nextMusic() {
+        $('.panel-collapse').collapse('hide');
+        $('#collapseTwo').collapse('show');
+    }
 
-function clock() {
     var s = 2;
     var m = 0;
     var stop = true;
     var intervalo;
-    //var h = 0;
 
     intervalo = window.setInterval(function() {
         if (s == 0) {
             //Verificar quando estamos no minuto zero. O Stop sendo True significa que podemos parar quando
             //os sergundos chegarem a zero.
             if (stop) {
-                document.getElementById("segundo").innerHTML = "0"+ s + "s";
-                window.clearInterval(intervalo);
+                document.getElementById(segundo).innerHTML = "0"+ s + "s";
                 nextMusic();
+                s = 2;
+                m = 0;
+                stop = true;
             }else{
                 //A principio as musicas terao 2m30s de duracao. Dessa forma:
                 m--;
@@ -33,16 +34,14 @@ function clock() {
             }
         }
 
-        // if (h < 10) document.getElementById("hora").innerHTML = "0" + h + "h"; else document.getElementById("hora").innerHTML = h + "h";
-        if (s < 10) document.getElementById("segundo").innerHTML = "0" + s + "s"; else document.getElementById("segundo").innerHTML = s + "s";
-        if (m < 10) document.getElementById("minuto").innerHTML = "0" + m + "m"; else document.getElementById("minuto").innerHTML = m + "m";
+        if (s < 10) document.getElementById(segundo).innerHTML = "0" + s + "s"; else document.getElementById(segundo).innerHTML = s + "s";
+        if (m < 10) document.getElementById(minuto).innerHTML = "0" + m + "m"; else document.getElementById(minuto).innerHTML = m + "m";
         s--;
     },1000);
 
     //Se houver o evento para esconder o collapse, entao sera acionado para que o evento de intervalo pare.
     $('.panel-collapse').on('hidden.bs.collapse', function () {
-        window.clearInterval(intervalo);
-        statusIntervalo = true;
+        //window.clearInterval(intervalo);
         $(this).find('.panel-body').html(' cifra');
     });
 
@@ -60,10 +59,12 @@ $(function() {
     //Quando fechar muda o icone. A desativacao do relogio esta sendo feito na propria funcao
     $('.panel-heading').bind('mouseup', function() {
         $('.panel-collapse').on('show.bs.collapse', function () {
-        var heading = '#' + $(this).attr('aria-labelledby');
-        $(heading).find('.fa-chevron-down').removeClass('fa-chevron-down').addClass('fa-chevron-up').css('color', '#FFFFFF');
-        $(this).find('.panel-body').prepend('<p><span id="minuto">00m</span> <span id="segundo">00s</span></p>');
-        clock();
+            var heading = '#' + $(this).attr('aria-labelledby');
+            var minuto = "minuto_" + heading;
+            var segundo = "segundo_" + heading;
+            $(heading).find('.fa-chevron-down').removeClass('fa-chevron-down').addClass('fa-chevron-up').css('color', '#FFFFFF');
+            $(this).find('.panel-body').prepend('<p><span id="minuto_'+heading+'">00m</span> <span id="segundo_'+heading+'">00s</span></p>');
+            clock(minuto, segundo);
         });
         $('.panel-collapse  ').on('hidden.bs.collapse', function () {
             var heading = '#' + $(this).attr('aria-labelledby');
